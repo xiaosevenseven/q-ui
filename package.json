@@ -4,10 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "pnpm -C play dev",
+    "docs:dev": "pnpm -C docs dev",
+    "docs:build": "pnpm -C docs build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.7.0"
+  "packageManager": "pnpm@10.7.0",
+  "dependencies": {
+    "@q-ui/components": "workspace:^",
+    "@q-ui/theme-chalk": "workspace:^",
+    "@q-ui/utils": "workspace:^",
+    "typescript": "^5.8.3",
+    "vue": "^3.5.13"
+  }
 }
