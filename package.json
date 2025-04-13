@@ -18,5 +18,8 @@
     "@q-ui/utils": "workspace:^",
     "typescript": "^5.8.3",
     "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.86.3"
   }
 }
