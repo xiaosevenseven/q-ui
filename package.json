@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@q-ui/components": "workspace:*",
+    "@q-ui/hooks": "workspace:*",
+    "@q-ui/utils": "workspace:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
