@@ -7,6 +7,7 @@
   "dependencies": {
     "@q-ui/components": "workspace:*",
     "@q-ui/hooks": "workspace:*",
+    "@q-ui/theme": "workspace:*",
     "@q-ui/utils": "workspace:*"
   },
   "keywords": [],
