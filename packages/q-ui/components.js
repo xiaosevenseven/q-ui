@@ -1,4 +1,5 @@
-import { QButton } from "@q-ui/components";
+import { QButton, QButtonGroup } from "@q-ui/components";
 export default [
-    QButton
+    QButton,
+    QButtonGroup
 ];

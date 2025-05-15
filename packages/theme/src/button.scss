@@ -47,6 +47,50 @@
   &.is-dashed {
     border-style: dashed;
   }
+  &.is-block {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+  }
+  &.is-circle {
+    border-radius: 100px;
+    padding: 0;
+    min-width: auto;
+  }
+  &.q-button--size_small {
+    height: 24px;
+    min-width: auto;
+    padding: 0 12px;
+    font-size: 12px;
+    &.is-circle {
+      width: 24px;
+    }
+  }
+  &.q-button--size_default  {
+
+    &.is-circle {
+      width: 24px;
+    }
+  }
+  &.q-button--size_large {
+    height: 40px;
+    padding: 0 24px;
+    &.is-circle {
+      width: 40px;
+    }
+  }
+  &.is-button-group {
+    border-radius: 0;
+    + .is-button-group {
+      margin-left: -2px;
+    }
+    &:first-child {
+      border-radius: 12px 0 0 12px;
+    }
+    &:last-child {
+      border-radius: 0 12px 12px 0;
+    }
+  }
 }
 
 // 默认
