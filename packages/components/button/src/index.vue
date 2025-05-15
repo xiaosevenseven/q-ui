@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { getCurrentInstance, defineProps, computed } from 'vue'
+import { defineProps } from 'vue'
 import { useNamespace, useParent } from '@q-ui/hooks'
 defineOptions({
     name: 'q-button'
