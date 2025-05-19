@@ -7,5 +7,6 @@
     // 层次色
     @include set-color-light();
     @include set-color-dark();
+    @include set-global-var();
 }
 

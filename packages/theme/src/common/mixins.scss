@@ -27,3 +27,13 @@
         }
     }
 }
+
+@mixin set-global-var() {
+    @each $key, $data in $global {
+        @if $data {
+            @each $type, $value in $data {
+                #{createVarName(($key, $type))}: #{$value};
+            }
+        }
+    }
+}
