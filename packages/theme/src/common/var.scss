@@ -1,4 +1,8 @@
 @use "sass:map";
+@use "sass:color";
+/**
+ * 主题变量
+ */
 
 $types: primary, success, warning, error;
 /**
@@ -43,7 +47,11 @@ $color-error: map.get($colors, "error", "base") !default;
     (
       $type: (
         "#{$mode}-#{$number}":
-          mix($mix-color, map.get($colors, $type, "base"), $number * 10),
+          color.mix(
+            $mix-color,
+            map.get($colors, $type, "base"),
+            $number * 10 * 1%
+          ),
       ),
     ),
     $colors
@@ -60,7 +68,6 @@ $color-error: map.get($colors, "error", "base") !default;
   }
 }
 
-@debug $colors;
 
 /**
  * 文字颜色
@@ -93,3 +100,32 @@ $font-size: map.deep-merge(
   ),
   $font-size
 );
+
+/**
+ * 边框颜色
+ */
+
+$border-color: () !default;
+$border-color: map.deep-merge(
+  (
+    "default": "#e2e6f1",
+    // 边框色
+    "disabled": "#ebeef5" // 禁用色,,
+  ),
+  $border-color
+);
+
+/**
+ * 组件尺寸
+ */
+$component-size: () !default;
+$component-size: map.deep-merge(
+  (
+    "small": 24px,
+    "default": 32px,
+    "large": 40px,
+  ),
+  $component-size
+);
+
+

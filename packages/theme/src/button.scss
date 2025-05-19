@@ -1,3 +1,4 @@
+@use './common//mixins.scss' as *;
 .q-button {
   display: inline-flex;
   align-items: center;
@@ -128,8 +129,9 @@
 }
 
 .q-button--primary {
-  border-color: #6e96ff;
-  background-color: #6e96ff;
+  $var: getVarName('color', 'primary');
+  border-color: var(#{$var});
+  background-color: var(#{$var});
   color: #fff;
   &:hover {
     border-color: #93b0ff;
@@ -162,8 +164,9 @@
 
 // 成功
 .q-button--success {
-  border-color: #14cd70;
-  background-color: #14cd70;
+  $var: getVarName('color', 'success');
+  border-color: var(#{$var});
+  background-color: var(#{$var});
   color: #fff;
   &:hover {
     border-color: #5adc9b;
@@ -196,8 +199,9 @@
 
 // 警告
 .q-button--warning {
-  border-color: #ffa81a;
-  background-color: #ffa81a;
+  $var: getVarName('color', 'warning');
+  border-color: var(#{$var});
+  background-color: var(#{$var});
   color: #fff;
   &:hover {
     border-color: #ffc55e;
@@ -230,8 +234,9 @@
 
 // 错误
 .q-button--error {
-  border-color: #ff3d3d;
-  background-color: #ff3d3d;
+  $var: getVarName('color', 'error');
+  border-color: var(#{$var});
+  background-color: var(#{$var});
   color: #fff;
   &:hover {
     border-color: #ff7b7b;
