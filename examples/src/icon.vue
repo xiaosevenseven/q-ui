@@ -6,12 +6,33 @@
         <i class="iconfont icon-eye"></i>
     </q-icon>
     <q-icon size="30" color="red">
-        <Eye></Eye>
+        <Eye />
     </q-icon>
+
+
+    <q-button type="error" size="large">
+        <q-icon>
+            <Delete />
+        </q-icon>
+        删除
+        <q-icon>
+            <Delete />
+        </q-icon>
+    </q-button>
+    <q-button type="error" size="large">
+        <q-icon>
+            <Delete />
+        </q-icon>
+        删除
+        <q-icon>
+            <Delete />
+        </q-icon>
+    </q-button>
 </template>
 
 <script>
-import { Eye } from "@q-ui/icons";
+import { Eye, Delete } from "@q-ui/icons";
+console.log("Eye", Eye)
 </script>
 
 <style lang="css" scoped>

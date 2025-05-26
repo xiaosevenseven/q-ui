@@ -1,6 +1,3 @@
-import Eye from "./svg/Eye.vue"
-import EyeOff from "./svg/EyeOff.vue"
-
-export {
-    Eye, EyeOff
-}
+export { default as Eye } from './svg/Eye.vue';
+export { default as Delete } from './svg/Delete.vue';
+export { default as EyeOff } from './svg/EyeOff.vue';

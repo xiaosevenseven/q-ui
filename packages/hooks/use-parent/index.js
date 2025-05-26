@@ -11,7 +11,6 @@ export const useParent = (parentName) => {
     const  parent = getCurrentInstance().parent;
     // 获取父级组件
     const group = () => {
-        console.log(" parent.proxy",  parent.proxy , `${defaultPrefix}-${parentName}` )
         return parent.proxy.$options.name  === `${defaultPrefix}-${parentName}`;
     }
     // 获取父级属性
