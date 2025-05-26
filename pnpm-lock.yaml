@@ -14,6 +14,9 @@ importers:
       '@q-ui/hooks':
         specifier: workspace:*
         version: link:packages/hooks
+      '@q-ui/icons':
+        specifier: workspace:*
+        version: link:packages/icons
       '@q-ui/theme':
         specifier: workspace:*
         version: link:packages/theme
@@ -43,6 +46,8 @@ importers:
   packages/components: {}
 
   packages/hooks: {}
+
+  packages/icons: {}
 
   packages/q-ui: {}
 

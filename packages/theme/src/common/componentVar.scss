@@ -1,0 +1,89 @@
+@use "function" as *;
+// 按钮组件配置
+@function buttonVar($type: ''){
+  $button: (
+    // 默认
+    'border-color': (
+      'default': getVarName('border-color', 'default'),
+      'type': getVarName('color', $type),
+    ),
+    'text-color': (
+      'default': getVarName('text-color', 'primary'),
+      'type': getVarName('color', 'white'),
+    ),
+    'bg-color': (
+      'default': getVarName('color', 'white'),
+      'type': getVarName('color', $type)
+    ),
+    'is-link-color': (
+      'default': getVarName('text-color', 'primary'),
+      'type': getVarName('color', $type),
+    ),
+    'is-text-color': (
+      'default': getVarName('text-color', 'primary'),
+      'type': getVarName('color', $type),
+    ),
+    'is-text-bg-color': (
+      'default': getVarName('color', 'white'),
+      'type': getVarName('color', 'white'),
+    ),
+    // hover
+    'hover-text-color': (
+      'default': getVarName('color', 'primary'),
+      'type': getVarName('color', 'white'),
+    ),
+    'hover-bg-color': (
+      'default': getVarName('color', 'primary', 'light-9'),
+      'type': getVarName('color', $type, 'light-3')
+    ),
+    'hover-border-color': (
+      'default': getVarName('color', 'primary', 'light-7'),
+      'type': getVarName('color', $type, 'light-3')
+    ),
+    'hover-is-link-color': (
+      'default': getVarName('text-color', 'secondary'),
+      'type': getVarName('color', $type, 'light-4')
+    ),
+    'hover-is-text-color': (
+      'default': getVarName('text-color', 'primary'),
+      'type': getVarName('color', $type),
+    ),
+    'hover-is-text-bg-color': (
+      'default': getVarName('text-color', 'light-8'),
+      'type': getVarName('color', $type, 'light-9')
+    ),
+    // disabled
+    'disabled-text-color': (
+      'default': getVarName('text-color', 'disabled'),
+      'type': getVarName('color', 'white')
+    ),
+    'disabled-bg-color': (
+      'default': getVarName('color', 'white'),
+      'type': getVarName('color', $type, 'light-5')
+    ),
+    'disabled-border-color': (
+      'default': getVarName('border-color', 'disabled'),
+      'type': getVarName('color', $type, 'light-5')
+    ),
+    'disabled-is-link-color': (
+      'default': getVarName('text-color', 'disabled'),
+      'type': getVarName('color', $type, 'light-5')
+    ),
+    'disabled-is-text-color': (
+      'default': getVarName('text-color', 'disabled'),
+      'type': getVarName('color', $type, 'light-5'),
+    ),
+    'disabled-is-text-bg-color': (
+      'default': getVarName('color', 'white'),
+      'type': getVarName('color', 'white')
+    ),
+    'size': (
+      'default': getVarName('component-size', 'default')
+    ),
+    'font-size': (
+      'default': getVarName('font-size', 'default')
+    )
+  );
+  @return $button;
+}
+

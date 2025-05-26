@@ -1,268 +1,142 @@
-@use './common//mixins.scss' as *;
-.q-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 32px;
-  min-width: 80px;
-  padding: 0 16px;
-  border: 2px solid #e3e3f1;
-  background-color: #fff;
-  box-sizing: border-box;
-  line-height: 1;
-  color: #4e5158;
-  text-align: center;
-  font-size: 14px;
-  white-space: nowrap;
-  transition: 0.3s;
-  user-select: none;
-  cursor: pointer;
-  vertical-align: middle;
+@use "./common/mixins.scss" as *;
+@use "./common/componentVar.scss" as *;
+@include b(button) {
+  @include set-component-var('button', buttonVar());
+}
+@include b(button) {
+  display: inline-flex;         // 盒模型，弹性布局
+  align-items: center;          // 子元素垂直居中
+  justify-content: center;      // 子元素水平居中
+  height: var(#{getVarName('button', 'size')});                 // 高度
+  min-width: 80px;              // 最小宽度
+  padding: 0 16px;              // 内边距为16px
+  background-color: var(#{getVarName('button', 'bg-color')});;     // 默认白色背景
+  border-radius: 12px;           // 圆角
+  border: 2px solid var(#{getVarName('button', 'border-color')});  // 1像素，实线边框
+  box-sizing: border-box;       // 忽略padding和border的计算
+  line-height: 1;               // 根据该元素本身的字体大小设置行高
+  color: var(#{getVarName('button', 'text-color')});             // 文字颜色
+  font-size: 14px;              // 字体大小
+  text-align: center;           // 文字居中
+  font-size: var(#{getVarName('button', 'font-size')});              // 字体大小 --a-button-font-size
+  white-space:nowrap;           // 不换行
+  transition: .3s;              // 300毫秒过渡
+  outline: none;                // 去除外轮廓
+  cursor: pointer;              // 鼠标指针变为“手”
+  user-select: none;            // 禁止选中文本内容
+  vertical-align: middle;       // 当前元素的垂直中心点和父元素的基线往上
   span {
-    line-height: 1;
-    display: inline-flex;
-    align-items: center;
+    line-height: 1;             // 根据该元素本身的字体大小设置行高
+    display: inline-flex;       // 盒模型，弹性布局
+    align-items: center;        // 子元素垂直居中
   }
-  &.is-round {
-    border-radius: 100px;
+  &:hover {
+    color: var(#{getVarName('button', 'hover-text-color')});
+    background-color: var(#{getVarName('button', 'hover-bg-color')});
+    border-color: var(#{getVarName('button', 'hover-border-color')});
   }
+  @include s((disabled, loading)) {
+    color: var(#{getVarName('button', 'disabled-text-color')});
+    background-color: var(#{getVarName('button', 'disabled-bg-color')});
+    border-color: var(#{getVarName('button', 'disabled-border-color')});
+    cursor: not-allowed;
+  }
+  // &.is-disabled, &.is-loading {
+  //   color: var(#{getVarName('button', 'disabled-text-color')});
+  //   background-color: var(#{getVarName('button', 'disabled-bg-color')});
+  //   border-color: var(#{getVarName('button', 'disabled-border-color')});
+  //   cursor: not-allowed;
+  // }
+  + .q-button { margin-left: 16px; }
+  // 圆形按钮
+  &.is-round { border-radius: 100px; }
   &.is-text {
-    background-color: transparent;  // 透明背景
-    border-color: transparent;      // 透明边框
-  }
-  &.is-link {
-    &, &:hover {
-        padding: 0;
-        height: auto;
-        min-width: auto;
-        background-color: transparent;
-        border-color: transparent;
-        text-decoration: underline;
+    color: var(#{getVarName('button', 'is-text-color')});
+    &:hover {
+      background-color: var(#{getVarName('button', 'hover-is-text-bg-color')});
+      border-color: var(#{getVarName('button', 'hover-is-text-bg-color')});
     }
+    &.is-disabled, 
+    &.is-loading {
+      color: var(#{getVarName('button', 'disabled-is-text-color')});
+      background-color: var(#{getVarName('button', 'disabled-is-text-bg-color')});
+      border-color: var(#{getVarName('button', 'disabled-is-text-bg-color')});
+    }
+    background-color: transparent;
+    border-color: transparent;
   }
   &.is-border {
+    color: var(#{getVarName('button', 'is-text-color')});
     &, &:hover {
-        background-color: transparent;
+      background-color: #fff;
     }
   }
   &.is-dashed {
     border-style: dashed;
   }
   &.is-block {
-    display: block;
-    width: 100%;
-    margin-left: 0;
+    display: block;  // 块级元素
+    width: 100%;     // 宽度100%，适应于父元素宽度
+    margin-left: 0;  // 左边边距为0
   }
-  &.is-circle {
+  .q-icon { font-size: var(#{getVarName('button', 'font-size')}); }
+  @include m(size, small){
+    padding: 0 10px;
+    min-width: auto;
+    border-radius: 10px;
+    font-size: 12px;
+    .q-icon { font-size: 12px; }
+    &.is-button-group {
+      &:first-child { border-radius: 10px 0 0 10px; }
+      &:last-child { border-radius: 0 10px 10px 0; }
+    }
+    #{getVarName('button', 'font-size')}: var(#{getVarName('font-size', 'small')});
+    #{getVarName('button', 'size')}: var(#{getVarName('component-size', 'small')});
+  }
+  @include m(size, large){
+    #{getVarName('button', 'font-size')}: var(#{getVarName('font-size', 'large')});
+    #{getVarName('button', 'size')}: var(#{getVarName('component-size', 'large')});
+    
+  }
+  &.q-button--size_default {
+    .q-icon { font-size: 14px; }
+  }
+  &.q-button--size_large {
+    font-size: 16px;
+    .q-icon { font-size: 16px; }
+  }
+  &.is-link {
+    color: var(#{getVarName('button', 'is-link-color')});
+    &:hover { color: var(#{getVarName('button', 'hover-is-link-color')}); }
+    &.is-disabled, 
+    &.is-loading { color: var(#{getVarName('button', 'disabled-is-link-color')}); }
+    &, &:hover {
+      padding: 0;
+      height: auto;
+      min-width: auto;
+      background-color: transparent;
+      border-color: transparent;
+      text-decoration: underline;
+    }
+  }
+  &.is-circle { 
     border-radius: 100px;
     padding: 0;
     min-width: auto;
-  }
-  &.q-button--size_small {
-    height: 24px;
-    min-width: auto;
-    padding: 0 12px;
-    font-size: 12px;
-    &.is-circle {
-      width: 24px;
-    }
-  }
-  &.q-button--size_default  {
-
-    &.is-circle {
-      width: 24px;
-    }
-  }
-  &.q-button--size_large {
-    height: 40px;
-    padding: 0 24px;
-    &.is-circle {
-      width: 40px;
-    }
+    width: var(#{getVarName('button', 'size')})
   }
   &.is-button-group {
     border-radius: 0;
-    + .is-button-group {
-      margin-left: -2px;
-    }
-    &:first-child {
-      border-radius: 12px 0 0 12px;
-    }
-    &:last-child {
-      border-radius: 0 12px 12px 0;
-    }
+    + .is-button-group { margin-left: -2px; }
+    &:first-child { border-radius: 12px 0 0 12px; }
+    &:last-child { border-radius: 0 12px 12px 0; }
   }
 }
-
-// 默认
-.q-button--default {
-  border-color: #e3e3f1;
-  background-color: #fff;
-  color: #4e5158;
-  &:hover {
-    border-color: #6e96ff;
-    background-color: #f5f5f8;
-  }
-  &.is-disabled {
-    cursor: not-allowed;
-    &, &:hover, &:focus {
-        background-color: #f5f5f8;
-        border-color: #e3e3f1;
-    }
-  }
-  &.is-text {
-    color: #6e96ff;
-    &:hover {
-      background-color: #f5f5f8;
-      border-color: #e3e3f1;
-    }
-  }
-  &.is-link {
-    color: #4e5158;
-    &:hover {
-      color: #6e96ff;
-    }
-  }
-  &.is-border {
-    color: #3069ff;
-  }
+// 主题按钮
+@each $type in $types {
+  $className: '.q-button--' + $type;
+  #{$className} {
+    @include set-component-var('button', buttonVar($type), 'type');
+  };
 }
-
-.q-button--primary {
-  $var: getVarName('color', 'primary');
-  border-color: var(#{$var});
-  background-color: var(#{$var});
-  color: #fff;
-  &:hover {
-    border-color: #93b0ff;
-    background-color: #93b0ff;
-  }
-  &.is-disabled {
-    cursor: not-allowed;
-    &, &:hover, &:focus {
-        background-color: #b3c4ff;
-        border-color: #93b0ff;
-    }
-  }
-  &.is-text {
-    color: #6e96ff;
-    &:hover {
-      background-color: #b3c4ff;
-      border-color: #93b0ff;
-    }
-  }
-  &.is-link {
-    color: #6e96ff;
-    &:hover {
-      color: #93b0ff;
-    }
-  }
-  &.is-border {
-    color: #3069ff;
-  }
-}
-
-// 成功
-.q-button--success {
-  $var: getVarName('color', 'success');
-  border-color: var(#{$var});
-  background-color: var(#{$var});
-  color: #fff;
-  &:hover {
-    border-color: #5adc9b;
-    background-color: #5adc9b;
-  }
-  &.is-disabled {
-    cursor: not-allowed;
-    &, &:hover, &:focus {
-        background-color: #89e6b7;
-        border-color: #89e6b7;
-    }
-  }
-  &.is-text {
-    color: #14cd70;
-    &:hover {
-      background-color: #89e6b7;
-      border-color: #89e6b7;
-    }
-  }
-  &.is-link {
-    color: #14cd70;
-    &:hover {
-      color: #89e6b7;
-    }
-  }
-  &.is-border {
-    color: #00b159;
-  }
-}
-
-// 警告
-.q-button--warning {
-  $var: getVarName('color', 'warning');
-  border-color: var(#{$var});
-  background-color: var(#{$var});
-  color: #fff;
-  &:hover {
-    border-color: #ffc55e;
-    background-color: #ffc55e;
-  }
-  &.is-disabled {
-    cursor: not-allowed;
-    &, &:hover, &:focus {
-        background-color: #ffd89a;
-        border-color: #ffd89a;
-    }
-  }
-  &.is-text {
-    color: #ffa81a;
-    &:hover {
-      background-color: #ffd89a;
-      border-color: #ffd89a;
-    }
-  }
-  &.is-link {
-    color: #ffa81a;
-    &:hover {
-      color: #ffd89a;
-    }
-  }  
-  &.is-border {
-    color: #d88700;
-  }
-}
-
-// 错误
-.q-button--error {
-  $var: getVarName('color', 'error');
-  border-color: var(#{$var});
-  background-color: var(#{$var});
-  color: #fff;
-  &:hover {
-    border-color: #ff7b7b;
-    background-color: #ff7b7b;
-  }
-  &.is-disabled {
-    cursor: not-allowed;
-    &, &:hover, &:focus {
-        background-color: #ffb3b3;
-        border-color: #ffb3b3;
-    }
-  }
-  &.is-text {
-    color: #ff3d3d;
-    &:hover {
-      background-color: #ffb3b3;
-      border-color: #ffb3b3;
-    }
-  }
-  &.is-link {
-    color: #ff3d3d;
-    &:hover {
-      color: #ffb3b3;
-    }
-  }
-  &.is-border {
-    color: #d80000;
-  }
-}
+.q-icon + span { margin-left: 4px; }

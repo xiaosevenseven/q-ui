@@ -1,5 +1,5 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import Icon from "./icon.vue";
 </script>
 
 <template>
@@ -97,6 +97,9 @@ import HelloWorld from './components/HelloWorld.vue'
         <q-button type="warning">警告</q-button>
         <q-button type="error">危险</q-button>
     </q-button-group>
+
+
+    <Icon></Icon>
 </template>
 
 <style scoped></style>
