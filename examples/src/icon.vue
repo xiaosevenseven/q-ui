@@ -31,8 +31,10 @@
 </template>
 
 <script>
-import { Eye, Delete } from "@q-ui/icons";
-console.log("Eye", Eye)
+// import { Eye, Delete } from "@q-ui/icons";
+// console.log("Eye", Eye)
+import Eye from "../../packages/icons/svg/Eye.vue";
+import Delete from "../../packages/icons/svg/Eye.vue";
 </script>
 
 <style lang="css" scoped>

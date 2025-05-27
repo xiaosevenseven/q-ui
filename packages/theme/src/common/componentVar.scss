@@ -87,3 +87,27 @@
   @return $button;
 }
 
+@function inputVar($type: ''){
+  $input: (
+    'text-color': (
+      'default': getVarName('text-color', 'primary'),
+    ),
+    'border-color': (
+      'default': getVarName('border-color', 'default'),
+    ),
+    'bg-color': (
+      'default': getVarName('color', 'white'),
+    ),
+    'size': (
+      'default': getVarName('component-size', 'default')
+    ),
+    'round': (
+      'default': getVarName('component-round', 'default')
+    ),
+    'font-size': (
+      'default': getVarName('font-size', 'default')
+    )
+  );
+  @return $input;
+}
+

@@ -1,5 +1,6 @@
 <script setup>
 import Icon from "./icon.vue";
+import Input from "./input.vue";
 </script>
 
 <template>
@@ -100,6 +101,7 @@ import Icon from "./icon.vue";
 
 
     <Icon></Icon>
+    <Input></Input>
 </template>
 
 <style scoped></style>
