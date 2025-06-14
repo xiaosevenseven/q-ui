@@ -4,14 +4,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "q-ui": "workspace:*",
-    "@q-ui/components": "workspace:*",
-    "@q-ui/hooks": "workspace:*",
-    "@q-ui/theme": "workspace:*",
-    "@q-ui/icons": "workspace:*",
-    "@q-ui/utils": "workspace:*"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC"
